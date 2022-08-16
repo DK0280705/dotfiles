@@ -29,9 +29,9 @@
     # The maximum height of a single notification, excluding the frame.
     #height = 300
     
-    geometry = "300x100-6+42"
+    geometry = "300x100-6+36"
 
-    shrink = yes
+    shrink = no
 
     # Position the notification in the top right corner
     origin = top-right
@@ -49,7 +49,7 @@
 
     # Turn on the progess bar. It appears when a progress hint is passed with
     # for example dunstify -h int:value:12
-    progress_bar = false
+    # progress_bar = false
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
@@ -63,7 +63,11 @@
 
     # Set the maximum width for the progress bar
     # progress_bar_max_width = 100
-
+    progress_bar = true
+    progress_bar_height = 14
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -72,26 +76,26 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 1
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 2
+    separator_height = 6
 
     # Padding between text and separator.
-    padding = 10
+    padding = 12
 
     # Horizontal padding.
-    horizontal_padding = 10
+    horizontal_padding = 12
 
     # Padding between text and icon.
     text_icon_padding = 0
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
     frame_color = "#da3450"
@@ -122,7 +126,7 @@
 
     ### Text ###
 
-    font = Ubuntu mono 10
+    font = IBM Plex Mono 10
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -292,14 +296,14 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1a1a1a"
+    background = "#222222"
     foreground = "#888888"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#222222"
+    background = "#2c2c2c"
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable

@@ -1,119 +1,167 @@
-/*
- *
- * Author  : Aditya Shakya
- * Mail    : adi1090x@gmail.com
- * Github  : @adi1090x
- * Twitter : @adi1090x
- *
- */
-
 configuration {
-    font:							"Ubuntu Mono Bold 12";
-    show-icons:                     true;
-	icon-theme: 					"Colloid-red-dark";
-    display-drun: 					"";
-    drun-display-format:            "{name}";
-    disable-history:                true;
-	sidebar-mode: 					false;
+    font: 							"IBM Plex Mono 12";
+    fixed-num-lines: 				true;
+    show-icons: 				    false;
+    sidebar-mode: 					true;
+    scroll-method: 					0;
+    window-format: 					"[{w}] ··· {c} ···   {t}";
+    click-to-exit: 					true;
+    combi-hide-mode-prefix: 		false;
+    display-window: 				"";
+    display-windowcd: 				"";
+    display-run: 					"";
+    display-ssh: 					"";
+    display-drun: 					"";
+    display-combi: 					"";
+    modi:                           "window,run,drun";
 }
 
 @import "colors.rasi"
 
 * {
-    background-color:   rgba(0, 0, 0, 0%);
-    text-color:         @fg;
+    background-color:             	@bg;
 }
 
 window {
-/*    transparency:                   "real";*/
-    background-color:               @bg;
-    text-color:                     @fg;
-	border:							0px 0px 4px 0px;
-	border-color:					@ac;
-    border-radius:                  0px;
-    padding:                        2px;
-	width:							600px;
-    location:                       center;
-    x-offset:                       0;
-    y-offset:                       0;
+    border: 						0px;
+    border-color: 					@ac;
+    border-radius: 					0px;
+    padding: 						32;
+    width: 							50%;
+    height: 						50%;
 }
 
 prompt {
-    enabled: 						true;
-	padding: 						2px 0px 0px 4px;
-	background-color: 				@al;
-	text-color: 					@fg;
-	font:							"feather 12";
+    spacing: 						0;
+    border: 						0;
+    text-color: 					@fg;
+}
+
+textbox-prompt-colon {
+    expand: 						false;
+    str: 							" ";
+    margin:							0px 4px 0px 0px;
+    text-color: 					inherit;
 }
 
 entry {
-    background-color:               @al;
-    text-color:                     @fg;
-    placeholder-color:              @fg;
-    expand:                         true;
-    horizontal-align:               0;
-    placeholder:                    "Search...";
-	padding: 						2px 0px 2px 8px;
-    blink:                          true;
+    spacing:    					0;
+    text-color: 					@fg;
+}
+
+case-indicator {
+    spacing:    					0;
+    text-color: 					@fg;
 }
 
 inputbar {
-	children: 						[ prompt, entry ];
-    background-color:               @bga;
-    text-color:                     @fg;
-    expand:                         false;
-	border:							0px;
-    border-radius:                  6px;
-	border-color:					@ac;
-    margin:                         4px 4px 8px 4px;
-    padding:                        8px;
-}
-
-listview {
-    background-color:               #1a1a1a;
-    padding:                        0px;
-    columns:                        2;
-    lines:                          7;
-    spacing:                        6px;
-    cycle:                          true;
-    dynamic:                        true;
-    layout:                         vertical;
+    spacing:    					0px;
+    text-color: 					@fg;
+    padding:    					1px 1px 16px 1px;
+    children: 						[ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 
 mainbox {
-    background-color:               #1a1a1a;
-	border:							0px;
-    border-radius:                  0px;
-	border-color:					@ac;
-    children:                       [ inputbar, listview ];
-    spacing:                       	6px;
-    padding:                        6px;
+    border: 						0px;
+    border-color: 					@ac;
+    padding: 						0;
+}
+
+listview {
+    lines:							10;
+    columns:						2;
+    fixed-height: 					0;
+    border: 						0px;
+    border-color: 					@ac;
+    spacing: 						4px;
+    scrollbar: 						false;
+    padding: 						4px 0px 0px;
+}
+
+element-text, element-icon {
+    background-color: #00000000;
+    text-color:       inherit;
 }
 
 element {
-    background-color:               #1a1a1a;
-    text-color:                     @fga;
-    orientation:                    horizontal;
-    border-radius:                  0px;
-    padding:                        8px;
+    border: 						0px;
+    padding: 						1px;
+}
+element normal.normal {
+    background-color: 				@bg;
+    text-color:       				@fg;
+}
+element normal.urgent {
+    background-color: 				@bg;
+    text-color:       				@red;
+}
+element normal.active {
+    background-color: 				@bg;
+    text-color:       				@green;
+}
+element selected.normal {
+    background-color: 				@bg;
+    text-color:       				@ac;
+}
+element selected.urgent {
+    background-color: 				@bg;
+    text-color:       				@red;
+}
+element selected.active {
+    background-color: 				@bg;
+    text-color:       				@ac;
+}
+element alternate.normal {
+    background-color: 				@bg;
+    text-color:       				@fg;
+}
+element alternate.urgent {
+    background-color: 				@bg;
+    text-color:       				@fg;
+}
+element alternate.active {
+    background-color: 				@bg;
+    text-color:       				@fg;
 }
 
-element-icon {
-    size:                           24px;
-    border:                         0px;
+sidebar {
+    border:       					0px;
+    border-color: 					@ac;
+    border-radius: 					20px;
 }
 
-element-text {
-    expand:                         true;
-    horizontal-align:               0;
+button {
+    horizontal-align:               0.5;
     vertical-align:                 0.5;
-    margin:                         0px 4px 0px 4px;
+    margin: 						4px 0px 0px 0px;
+    padding: 						5px;
+    text-color: 					@fg;
+    border: 						0px;
+    border-radius: 					8px;
+    border-color: 					@ac;
 }
 
-element selected {
-    background-color:               @bga;
-    text-color:                     @fg;
-	border:							0px 0px 0px 0px;
-    border-radius:                  6px;
-    border-color:                  	@ac;
+button selected {
+    text-color: 					@bg;
+    border: 						3px;
+    border-color: 					@ac;
+    background-color:               @ac;
+}
+
+scrollbar {
+    width:        					4px;
+    border:       					0px;
+    handle-color: 					@fg;
+    handle-width: 					8px;
+    padding:      					0;
+}
+
+message {
+    border: 						0px;
+    border-color: 					@ac;
+    padding: 						1px;
+}
+
+textbox {
+    text-color: 					@fg;
 }

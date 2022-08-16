@@ -17,6 +17,7 @@ font pango: IBM Plex Mono Semibold 10
 
 # title style
 default_border normal 0
+
 for_window [class=".*"] title_format " %title"
 for_window [class="Nautilus"] floating enable
 for_window [class="calculator"] floating enable
@@ -206,8 +207,8 @@ set $gr #222222
 
 # class                 border  bground text    indicator child_border
 client.focused          $yl     $yl     $bl     $yl       $yl
-client.focused_inactive #333333 #242424 #FFFFFF #484E50   #242424
-client.unfocused        #333333 #212121 #888888 #292D2E   #212121
+client.focused_inactive #242424 #242424 #FFFFFF #484E50   #242424
+client.unfocused        #212121 #212121 #888888 #292D2E   #212121
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 

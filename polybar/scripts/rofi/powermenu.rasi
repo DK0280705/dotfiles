@@ -8,63 +8,38 @@
  */
 
 configuration {
-	font:							"Ubuntu Mono Bold 12";
-    show-icons:                     true;
-	icon-theme: 					"Papirus";
-    display-drun: 					"";
+	font:							"IBM Plex Mono 12";
+    show-icons:                     false;
+	icon-theme: 					"Colloid-red-dark";
     drun-display-format:            "{name}";
     disable-history:                false;
-    fullscreen:                     false;
-	hide-scrollbar: 				true;
 	sidebar-mode: 					false;
 }
 
 @import "colors.rasi"
 
-* {
-    background-color: rgba(0,0,0,0%);
-    text-color: @fg;
-}
-
 window {
     transparency:                   "real";
     background-color:               @bg;
     text-color:                     @fg;
-	border:							0px 0px 4px 0px;
-	border-color:					@ac;
     border-radius:                  0px;
-    padding:                        2px;
-	width:							300px;
-    location:                       center;
-    x-offset:                       0;
-    y-offset:                       0;
+    height:                         240px;
+    width:                          780px;
 }
 
 prompt {
     enabled: 						true;
-	padding: 						2px 0px 0px 10px;
-	background-color: 				@al;
+    padding:                        0.5% 0.5% 0.5% 0.5%;
+	background-color: 				@bga;
 	text-color: 					@fg;
 }
 
 textbox-prompt-colon {
-	padding: 						2px 0px 0px 5px;
-	background-color: 				@al;
+	expand: 						false;
+	str: 							"System |";
+	background-color: 				@bga;
 	text-color: 					@fg;
-	expand: false;
-	str: "";
-	font:							"feather 12";
-}
-
-entry {
-    background-color:               @al;
-    text-color:                     @fg;
-    placeholder-color:              @fg;
-    expand:                         true;
-    horizontal-align:               0;
-    placeholder:                    "Search...";
-	padding: 						2px 0px 0px 0px;
-    blink:                          true;
+    padding:                        0.5% 0.5% 0.5% 0.5%;
 }
 
 inputbar {
@@ -72,58 +47,73 @@ inputbar {
     background-color:               @bga;
     text-color:                     @fg;
     expand:                         false;
-	border:							0px;
-    border-radius:                  6px;
-	border-color:					@ac;
-    margin:                         4px 4px 8px 4px;
-    padding:                        8px;
+    margin:                         0% 0% 0% 0%;
+    padding:                        0.5%;
+    position:                       center;
 }
 
 listview {
-    background-color:               @al;
-    padding:                        0px;
-    columns:                        1;
-    lines:                          5;
-    spacing:                        6px;
-    cycle:                          true;
+    columns:                        5;
+    expand:                         true;
+    background-color:               @bg;
+    spacing:                        2%;
+    margin:                         0 2%;
     dynamic:                        true;
-    layout:                         vertical;
+    cycle:                          true;
 }
 
 mainbox {
-    background-color:               @al;
-	border:							0px;
-    border-radius:                  0px;
-	border-color:					@ac;
+    background-color:               @bg;
     children:                       [ inputbar, listview ];
-    spacing:                       	6px;
-    padding:                        6px;
+    spacing:                        3.5%;
 }
 
 element {
-    background-color:               @al;
-    text-color:                     @fga;
+    background-color:               @bga;
+    text-color:                     @fg;
     orientation:                    horizontal;
-    border-radius:                  6px;
-    padding:                        8px 8px 8px -16px;
-}
-
-element-icon {
-    size:                           24px;
-    border:                         0px;
+    border-radius:                  25px;
 }
 
 element-text {
+    background-color: 				#00000000;
+    text-color:       				inherit;
+	font:							"feather 32";
     expand:                         true;
-    horizontal-align:               0;
+    horizontal-align:               0.5;
     vertical-align:                 0.5;
-    margin:                         0px 2.5px 0px 2.5px;
+    margin:                         40px 40px 40px 40px;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @urgent;
+    text-color:                     @fg;
+    border-radius:                  0.2%;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @bga;
+    text-color:                     @fg;
 }
 
 element selected {
-    background-color:               @bga;
-    text-color:                     @fg;
-	border:							0px 0px 0px 0px;
-    border-radius:                  6px;
+    background-color:               @ac;
+    text-color:                     @bg;
+/*
+    border:                  		4px 0px 4px 0px;
+    border-radius:                  25px;
     border-color:                  	@ac;
+*/
+}
+
+element selected.urgent {
+    background-color:               @urgent;
+    text-color:                     @fg;
+}
+
+element selected.active {
+    background-color:               @bga;
+    color:                          @fg;
 }
